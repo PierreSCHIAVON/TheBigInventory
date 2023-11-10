@@ -8,13 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './Components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { ArmylistComponent } from './armylist/armylist.component';
-import { CampaignComponent } from './campaign/campaign.component';
-import { SignupComponent } from './signup/signup.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { InventoryComponent } from './Components/inventory/inventory.component';
+import { ArmylistComponent } from './Components/armylist/armylist.component';
+import { CampaignComponent } from './Components/campaign/campaign.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 @NgModule({
   declarations: [
