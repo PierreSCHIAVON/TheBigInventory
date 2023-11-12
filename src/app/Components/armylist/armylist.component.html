@@ -1,1 +1,12 @@
-<p>armylist works!</p>
+<div *ngIf="armyList.length > 0; else noArmies">
+    <h2>List of Armies</h2>
+    <ul>
+      <li *ngFor="let army of armyList">
+        {{ army.name }}
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noArmies>
+    <p>No armies available.</p>
+  </ng-template>
