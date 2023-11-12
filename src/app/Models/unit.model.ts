@@ -1,4 +1,5 @@
-export interface Army {
+
+export interface Unit{
     id: number;
     name: string;
-  }
+}

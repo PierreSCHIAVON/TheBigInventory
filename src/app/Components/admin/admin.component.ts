@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Army } from 'src/app/Models/army.model';
+import { Unit } from 'src/app/Models/unit.model';
 import { ArmyService } from 'src/app/Service/army.service';
+import { UnitService } from 'src/app/Service/unit.service';
 
 @Component({
   selector: 'app-admin',
@@ -11,18 +13,21 @@ import { ArmyService } from 'src/app/Service/army.service';
 export class AdminComponent {
   armyList: Army[] = [];
   army: Army = { id: 0, name: '' }; 
-  name: string = '';
+  unitList: Unit[] = [];
+  unit: Unit = { id: 0, name: '' }; 
+  unitName: string = '';
+  armyName: string = '';
 
-  constructor(private http: HttpClient, private armyService: ArmyService) {}
+  constructor(private http: HttpClient, private armyService: ArmyService, private unitService : UnitService) {}
 
   ngOnInit(): void {
     this.getAllArmies();
+    this.getAllUnits();
   }
 
-  submitForm() {
-    this.armyService.createArmy({ name: this.name }).subscribe({
+  submitArmyForm() {
+    this.armyService.createArmy({ name: this.armyName }).subscribe({
       next: (createdArmy: Army) => {
-        console.log('Armée créée avec succès!', createdArmy);
         this.getAllArmies();
       },
       error: (error: any) => {
@@ -32,24 +37,34 @@ export class AdminComponent {
       },
     });
   }
-  
 
+  submitUnitForm() {
+    this.unitService.createUnit({ name: this.unitName }).subscribe({
+      next: (createdUnit: Unit) => {
+        this.getAllUnits();
+      },
+      error: (error: any) => {
+        console.error('Erreur lors de la création de l\'unité', error);
+      },
+      complete: () => {
+      },
+    });
+  }
 
   getAllArmies() {
-    this.armyService.getAllArmies().subscribe(
-      (data: Army[]) => {
+    this.armyService.getAllArmies().subscribe({
+      next: (data: Army[]) => {
         this.armyList = data;
       },
-      (error: any) => {
+      error: (error: any) => {
         console.error(error);
       }
-    );
+    });
   }
 
   getArmyById(id: number): void {
     this.armyService.getArmyById(id).subscribe((result) => {
       this.army = result;
-      console.log('Armée récupérée avec succès:', this.army);
     });
   }
 
@@ -65,15 +80,53 @@ export class AdminComponent {
   }
 
   deleteArmy(id: number): void {
-    this.armyService.deleteArmy(id).subscribe(
-      () => {
-        console.log('Armée supprimée avec succès');
+    this.armyService.deleteArmy(id).subscribe({
+      next: () => {
         this.getAllArmies();
       },
-      (error: any) => {
+      error: (error: any) => {
         console.error('Erreur lors de la suppression de l\'armée', error);
       }
-    );
+    });
+  }
+  
+  getAllUnits() {
+    this.unitService.getAllUnits().subscribe({
+      next: (data: Unit[]) => {
+        this.unitList = data;
+      },
+      error: (error: any) => {
+        console.error(error);
+      }
+    });
+  }
+
+  getUnitById(id: number): void {
+    this.unitService.getUnitById(id).subscribe((result) => {
+      this.army = result;
+    });
+  }
+
+  updateUnit(unit: Unit): void {
+    this.unitService.updateUnit(unit).subscribe({
+      next: (updatedUnit: Unit) => {
+        this.getAllUnits();
+      },
+      error: (error: any) => {
+        console.error('Erreur lors de la mise à jour de l\'armée', error);
+      },
+    });
+  }
+
+  deleteUnit(id: number): void {
+    this.unitService.deleteUnit(id).subscribe({
+      next: () => {
+        this.getAllUnits();
+      },
+      error: (error: any) => {
+        console.error('Erreur lors de la suppression de l\'armée', error);
+      }
+    });
   }
   
 
