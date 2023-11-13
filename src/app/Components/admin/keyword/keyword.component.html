@@ -1,0 +1,43 @@
+<div *ngIf="keywordList.length > 0; else noArmies">
+    <h2>List of Keywords</h2>
+    <div *ngFor="let keyword of keywordList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ keyword.name }}</mat-label>
+              <input matInput [(ngModel)]="keyword.name" name="name">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateKeyword(keyword)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteKeyword(keyword.id)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noArmies>
+    <p>No kewords available.</p>
+  </ng-template>
+  
+  
+
+<p>Nouveau Keyword</p>
+
+<form class="example-form" (submit)="submitKeywordForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom du keyword</mat-label>
+            <input matInput [(ngModel)]="keywordName" name="name">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>

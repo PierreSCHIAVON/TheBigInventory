@@ -1,0 +1,51 @@
+<div *ngIf="equipmentList.length > 0; else noArmies">
+    <h2>List of Equipments</h2>
+    <div *ngFor="let equipment of equipmentList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ equipment.name }}</mat-label>
+              <input matInput [(ngModel)]="equipment.name" name="name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ equipment.points }}</mat-label>
+              <input matInput [(ngModel)]="equipment.points" name="points">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateEquipment(equipment)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteEquipment(equipment.id)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noArmies>
+    <p>No Equipment available.</p>
+  </ng-template>
+  
+  
+
+<p>Nouveau Equipment</p>
+
+<form class="example-form" (submit)="submitEquipmentForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom du Equipment</mat-label>
+            <input matInput [(ngModel)]="equipmentName" name="name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Points</mat-label>
+            <input matInput [(ngModel)]="equipmentPoints" name="points">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>

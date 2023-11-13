@@ -20,6 +20,13 @@ import { ArmylistComponent } from './Components/armylist/armylist.component';
 import { CampaignComponent } from './Components/campaign/campaign.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { UnitComponent } from './Components/admin/unit/unit.component';
+import { ArmyComponent } from './Components/admin/army/army.component';
+import { KeywordComponent } from './Components/admin/keyword/keyword.component';
+import { WeaponTypeComponent } from './Components/admin/weapon-type/weapon-type.component';
+import { UnitTypeComponent } from './Components/admin/unit-type/unit-type.component';
+import { SoldierComponent } from './Components/admin/soldier/soldier.component';
+import { EquipementComponent } from './Components/admin/equipement/equipement.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +37,14 @@ import { AdminComponent } from './Components/admin/admin.component';
     ArmylistComponent,
     CampaignComponent,
     SignupComponent,
-    AdminComponent
+    AdminComponent,
+    UnitComponent,
+    ArmyComponent,
+    KeywordComponent,
+    WeaponTypeComponent,
+    UnitTypeComponent,
+    SoldierComponent,
+    EquipementComponent
   ],
   imports: [
     BrowserModule,
