@@ -27,25 +27,12 @@ export class UnitComponent {
 
   ngOnInit(): void {
     this.getAllUnits();
-    this.getAllKeywords();
   }
 
-  getAllKeywords() {
-    this.keywordService.getAllKeywords().subscribe({
-      next: (data: Keyword[]) => {
-        this.keywordList = data;
-      },
-      error: (error: any) => {
-        console.error(error);
-      }
-    });
-  }
 
   submitUnitForm() {
     this.unitService.createUnit({ name: this.unitName }).subscribe({
       next: (createdUnit: Unit) => {
-        // Appeler la fonction createAppartenir avec les paramètres nécessaires
-        this.createAppartenir(createdUnit.id_unit, this.keywordId);
         this.getAllUnits();
       },
       error: (error: any) => {
@@ -57,19 +44,7 @@ export class UnitComponent {
     });
   }
   
-  createAppartenir(unitId: number, keywordId: number) {
-    this.appartenirService.createAppartenir({ id_unit: unitId, id_keyword: keywordId }).subscribe({
-      next: (createdAppartenir: Appartenir) => {
-        // Code à exécuter après la création de l'appartenance
-      },
-      error: (error: any) => {
-        console.error('Erreur lors de la création de l\'appartenance', error);
-      },
-      complete: () => {
-        // Code à exécuter après la création de l'appartenance
-      },
-    });
-  }
+
 
   getAllUnits() {
     this.unitService.getAllUnits().subscribe({

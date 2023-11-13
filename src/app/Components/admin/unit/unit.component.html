@@ -9,12 +9,6 @@
               <input matInput [(ngModel)]="unit.name" name="name">
             </mat-form-field>
           </td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Keyword</mat-label>
-            <select matNativeControl required [(ngModel)]="selectedKeywordId" name="keyword">
-              <option *ngFor="let keyword of keywordList" [value]="keyword.id_keyword">{{ keyword.name }}</option>
-            </select>
-          </mat-form-field>
           <td>
             <button (click)="updateUnit(unit)">Update</button>
           </td>
@@ -41,14 +35,6 @@
           <mat-form-field class="example-full-width">
             <mat-label>Nom d'unité</mat-label>
             <input matInput [(ngModel)]="unitName" name="name">
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Keyword</mat-label>
-            <select matNativeControl required [(ngModel)]="selectedKeywordId" name="keyword">
-              <option *ngFor="let keyword of keywordList" [value]="keyword.id_keyword">{{ keyword.name }}</option>
-            </select>
           </mat-form-field>
         </td>
       </tr>

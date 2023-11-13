@@ -12,9 +12,11 @@ export class AppartenirService {
   private apiUrl = 'http://localhost:8080/api/appartenir';
   constructor(private http: HttpClient) { }
 
-  createAppartenir(appartenirData: { id_unit: number; id_keyword:number }): Observable<Appartenir> {
-    return this.http.post<Appartenir>(`${this.apiUrl}`, appartenirData);
+  createAppartenir(appartenirData: { id_unit: number; id_keyword: number }): Observable<Appartenir> {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post<Appartenir>(`${this.apiUrl}`, JSON.stringify(appartenirData), { headers });
   }
+  
 
   getAllAppartenir(): Observable<Appartenir[]> {
     return this.http.get<Appartenir[]>(`${this.apiUrl}`);
