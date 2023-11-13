@@ -11,7 +11,7 @@ import { WeaponTypeService } from 'src/app/Service/weapon-type.service';
 export class WeaponTypeComponent {
 
   weaponTypeList: Weapon_Type[] = [];
-  weaponType: Weapon_Type = { id: 0, name: '' }; 
+  weaponType: Weapon_Type = { id_weapontype: 0, name: '' }; 
   weaponTypeName: string = '';
 
   constructor(private http: HttpClient, private weaponTypeService: WeaponTypeService) {}

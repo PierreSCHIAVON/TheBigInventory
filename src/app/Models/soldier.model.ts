@@ -1,5 +1,5 @@
 export interface Soldier{
-    id: number;
+    id_soldier: number;
     name: string;
     points : number;
 }

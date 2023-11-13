@@ -10,7 +10,7 @@ import { EquipmentService } from 'src/app/Service/equipment.service';
 })
 export class EquipementComponent {
   equipmentList: Equipment[] = [];
-  equipment: Equipment = { id: 0, name: '', points:0}; 
+  equipment: Equipment = { id_equipment: 0, name: '', points:0}; 
   equipmentName: string = '';
   equipmentPoints: number = 0;
 
@@ -63,6 +63,12 @@ export class EquipementComponent {
   
 
   deleteEquipment(id: number): void {
+    // Vérifier si l'ID est valide
+    if (id === null || id === undefined) {
+      console.error('ID invalide :', id);
+      return;
+    }
+  
     this.equipmentService.deleteEquipment(id).subscribe({
       next: () => {
         this.getAllEquipments();
@@ -72,4 +78,6 @@ export class EquipementComponent {
       }
     });
   }
+  
+  
 }

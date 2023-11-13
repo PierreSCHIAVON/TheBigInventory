@@ -1,4 +1,4 @@
 export interface Army {
-    id: number;
+    id_army: number;
     name: string;
   }

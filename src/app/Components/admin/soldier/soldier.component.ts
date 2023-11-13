@@ -11,7 +11,7 @@ import { SoldierService } from 'src/app/Service/soldier.service';
 export class SoldierComponent {
 
   soldierList: Soldier[] = [];
-  soldier: Soldier = { id: 0, name: '', points:0}; 
+  soldier: Soldier = { id_soldier: 0, name: '', points:0}; 
   soldierName: string = '';
   soldierPoints: number = 0;
 

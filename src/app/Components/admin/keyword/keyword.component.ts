@@ -11,7 +11,7 @@ import { KeywordService } from 'src/app/Service/keyword.service';
 export class KeywordComponent {
 
   keywordList: Keyword[] = [];
-  keyword: Keyword = { id: 0, name: '' }; 
+  keyword: Keyword = { id_keyword: 0, name: '' }; 
   keywordName: string = '';
 
   constructor(private http: HttpClient, private keywordService: KeywordService) {}
@@ -31,7 +31,7 @@ export class KeywordComponent {
       complete: () => {
       },
     });
-  }
+  } 
 
   getAllKeywords() {
     this.keywordService.getAllKeywords().subscribe({

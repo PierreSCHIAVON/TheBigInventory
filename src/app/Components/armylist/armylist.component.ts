@@ -9,7 +9,7 @@ import { Army } from 'src/app/Models/army.model';
 })
 export class ArmylistComponent implements OnInit {
   armyList: Army[] = [];
-  army: Army = { id: 0, name: '' }; 
+  army: Army = { id_army: 0, name: '' }; 
   name : string ='';
 
   constructor(private armyService: ArmyService) {}

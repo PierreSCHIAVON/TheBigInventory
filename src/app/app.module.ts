@@ -27,6 +27,7 @@ import { WeaponTypeComponent } from './Components/admin/weapon-type/weapon-type.
 import { UnitTypeComponent } from './Components/admin/unit-type/unit-type.component';
 import { SoldierComponent } from './Components/admin/soldier/soldier.component';
 import { EquipementComponent } from './Components/admin/equipement/equipement.component';
+import { AppartenirComponent } from './Components/appartenir/appartenir.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EquipementComponent } from './Components/admin/equipement/equipement.co
     WeaponTypeComponent,
     UnitTypeComponent,
     SoldierComponent,
-    EquipementComponent
+    EquipementComponent,
+    AppartenirComponent
   ],
   imports: [
     BrowserModule,

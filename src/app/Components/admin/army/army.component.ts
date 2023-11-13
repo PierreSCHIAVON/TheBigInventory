@@ -11,7 +11,7 @@ import { ArmyService } from 'src/app/Service/army.service';
 export class ArmyComponent {
 
   armyList: Army[] = [];
-  army: Army = { id: 0, name: '' }; 
+  army: Army = { id_army: 0, name: '' }; 
   armyName: string = '';
 
   constructor(private http: HttpClient, private armyService: ArmyService) {}

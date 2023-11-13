@@ -11,7 +11,7 @@ import { UnitTypeService } from 'src/app/Service/unit-type.service';
 export class UnitTypeComponent {
 
   unitTypeList: Unit_Type[] = [];
-  unitType: Unit_Type = { id: 0, name: '' }; 
+  unitType: Unit_Type = { id_unittype: 0, name: '' }; 
   unitTypeName: string = '';
 
   constructor(private http: HttpClient, private unitTypeService: UnitTypeService) {}

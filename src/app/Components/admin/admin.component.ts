@@ -12,9 +12,9 @@ import { UnitService } from 'src/app/Service/unit.service';
 })
 export class AdminComponent {
   armyList: Army[] = [];
-  army: Army = { id: 0, name: '' }; 
+  army: Army = { id_army: 0, name: '' }; 
   unitList: Unit[] = [];
-  unit: Unit = { id: 0, name: '' }; 
+  unit: Unit = { id_unit: 0, name: '' }; 
   unitName: string = '';
   armyName: string = '';
 

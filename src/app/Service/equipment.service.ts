@@ -10,7 +10,7 @@ export class EquipmentService {
 
   equipment : Equipment | undefined 
   name : string ='';
-  private apiUrl = 'http://localhost:8080/api/soldier';
+  private apiUrl = 'http://localhost:8080/api/equipment';
 
   constructor(private http: HttpClient) { }
 

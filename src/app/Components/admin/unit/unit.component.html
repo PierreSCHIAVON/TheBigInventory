@@ -9,16 +9,22 @@
               <input matInput [(ngModel)]="unit.name" name="name">
             </mat-form-field>
           </td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Keyword</mat-label>
+            <select matNativeControl required [(ngModel)]="selectedKeywordId" name="keyword">
+              <option *ngFor="let keyword of keywordList" [value]="keyword.id_keyword">{{ keyword.name }}</option>
+            </select>
+          </mat-form-field>
           <td>
             <button (click)="updateUnit(unit)">Update</button>
           </td>
           <td>
-            <button (click)="deleteUnit(unit.id)">Delete</button>
+            <button (click)="deleteUnit(unit.id_unit)">Delete</button>
           </td>
         </tr>
       </table>
     </div>
-  </div>
+  </div> 
   
   <ng-template #noUnits>
     <p>No units available.</p>
@@ -26,9 +32,9 @@
   
   
 
-<p>Nouvelle unité</p>
+  <p>Nouvelle unité</p>
 
-<form class="example-form" (submit)="submitUnitForm()">
+  <form class="example-form" (submit)="submitUnitForm()">
     <table class="example-full-width" cellspacing="0">
       <tr>
         <td>
@@ -37,7 +43,16 @@
             <input matInput [(ngModel)]="unitName" name="name">
           </mat-form-field>
         </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Keyword</mat-label>
+            <select matNativeControl required [(ngModel)]="selectedKeywordId" name="keyword">
+              <option *ngFor="let keyword of keywordList" [value]="keyword.id_keyword">{{ keyword.name }}</option>
+            </select>
+          </mat-form-field>
+        </td>
       </tr>
     </table>
     <input type="submit" value="Envoyer">
   </form>
+  

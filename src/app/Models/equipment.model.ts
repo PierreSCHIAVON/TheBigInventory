@@ -1,5 +1,5 @@
 export interface Equipment{
-    id: number;
+    id_equipment: number;
     name: string;
     points : number;
 }
