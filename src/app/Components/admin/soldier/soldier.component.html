@@ -1,0 +1,53 @@
+<div *ngIf="soldierList.length > 0; else noArmies">
+    <h2>List of Soldier</h2>
+    <div *ngFor="let soldier of soldierList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ soldier.name }}</mat-label>
+              <input matInput [(ngModel)]="soldier.name" name="name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ soldier.points }}</mat-label>
+              <input matInput [(ngModel)]="soldier.points" name="points">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateSoldier(soldier)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteSoldier(soldier.id_soldier)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noArmies>
+    <p>No Soldier available.</p>
+  </ng-template>
+  
+  
+
+<p>Nouveau Soldier</p>
+
+<form class="example-form" (submit)="submitSoldierForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom du Soldat</mat-label>
+            <input matInput [(ngModel)]="soldierName" name="name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Points</mat-label>
+            <input matInput [(ngModel)]="soldierPoints" name="points">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>
+
+

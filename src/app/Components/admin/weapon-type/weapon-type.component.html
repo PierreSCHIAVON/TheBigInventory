@@ -1,0 +1,44 @@
+<div *ngIf="weaponTypeList.length > 0; else noArmies">
+    <h2>List of Weapon Type</h2>
+    <div *ngFor="let weaponType of weaponTypeList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ weaponType.name }}</mat-label>
+              <input matInput [(ngModel)]="weaponType.name" name="name">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateWeaponType(weaponType)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteWeaponType(weaponType.id_weapontype)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noArmies>
+    <p>No Weapon Type available.</p>
+  </ng-template>
+  
+  
+
+<p>Nouveau Weapon Type</p>
+
+<form class="example-form" (submit)="submitWeaponTypeForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom du weaponType</mat-label>
+            <input matInput [(ngModel)]="weaponTypeName" name="name">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>
+
