@@ -1,0 +1,44 @@
+<div *ngIf="unitList.length > 0; else noUnits">
+    <h2>List of Units</h2>
+    <div *ngFor="let unit of unitList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ unit.name }}</mat-label>
+              <input matInput [(ngModel)]="unit.name" name="name">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateUnit(unit)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteUnit(unit.id_unit)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div> 
+  
+  <ng-template #noUnits>
+    <p>No units available.</p>
+  </ng-template>
+  
+  
+
+  <p>Nouvelle unité</p>
+
+  <form class="example-form" (submit)="submitUnitForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom d'unité</mat-label>
+            <input matInput [(ngModel)]="unitName" name="name">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>
+  

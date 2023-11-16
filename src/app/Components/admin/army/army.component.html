@@ -1,0 +1,43 @@
+<div *ngIf="armyList.length > 0; else noArmies">
+    <h2>List of Armies</h2>
+    <div *ngFor="let army of armyList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ army.name }}</mat-label>
+              <input matInput [(ngModel)]="army.name" name="name">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateArmy(army)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteArmy(army.id_army)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noArmies>
+    <p>No armies available.</p>
+  </ng-template>
+  
+  
+
+<p>Nouvelle armée</p>
+
+<form class="example-form" (submit)="submitArmyForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom d'armée</mat-label>
+            <input matInput [(ngModel)]="armyName" name="name">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>

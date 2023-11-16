@@ -1,0 +1,52 @@
+<div *ngIf="unitList.length > 0; else noUnits">
+    <h2>List of appartenance</h2>
+    <div *ngFor="let appartenir of appartenirList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ appartenir.id_appartenir }}</mat-label>
+              <input matInput [(ngModel)]="appartenir.id_appartenir" name="id_appartenir">
+            </mat-form-field>
+          </td>
+          <td>
+            <button *ngIf="appartenir.id_appartenir !== null && appartenir.id_appartenir !== undefined" (click)="updateAppartenir(appartenir)">Update</button>
+          </td>
+          <td>
+            <button *ngIf="appartenir.id_appartenir !== null && appartenir.id_appartenir !== undefined" (click)="deleteAppartenir(appartenir.id_appartenir)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #noUnits>
+    <p>No units available.</p>
+  </ng-template>
+  
+  <p>Nouvelle unité</p>
+  
+  <form class="example-form" (submit)="submitAppartenirForm()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Mot-clé</mat-label>
+            <select matNativeControl required [(ngModel)]="selectedKeywordId" name="keyword">
+              <option *ngFor="let keyword of keywordList" [value]="keyword.id_keyword">{{ keyword.name }}</option>
+            </select>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Unité</mat-label>
+            <select matNativeControl required [(ngModel)]="selectedUnitId" name="unit">
+              <option *ngFor="let unit of unitList" [value]="unit.id_unit">{{ unit.name }}</option>
+            </select>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>
+  

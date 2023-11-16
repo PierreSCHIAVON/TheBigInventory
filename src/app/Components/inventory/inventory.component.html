@@ -1,0 +1,60 @@
+<div *ngIf="inventoryList.length > 0; else noArmies">
+    <h2>List of Inventory</h2>
+    <div *ngFor="let inventory of inventoryList">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ inventory.name }}</mat-label>
+              <input matInput [(ngModel)]="inventory.name" name="name">
+            </mat-form-field>
+          </td>
+          <td>
+            <button (click)="updateInventory(inventory)">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteInventory(inventory.id_inventory)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <h3>Listes des peintures à rajouter à votre inventaire </h3>
+    <select>
+        <option value="default">----</option>
+        <option *ngFor="let paint of paintList" [value]="paint.id_paint">
+          {{ paint.name }}
+        </option>
+    </select>
+  
+  
+  <ng-template #noArmies>
+    <p>No Inventory available.</p>
+  </ng-template>
+  
+
+<form class="example-form" (submit)="createInventory()">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nom de l'inventaire</mat-label>
+            <input matInput [(ngModel)]="inventoryName" name="name">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Envoyer">
+  </form>
+
+  <h3>Listes des peintures à rajouter à votre inventaire </h3>
+  <select [(ngModel)]="selectedPaint">
+      <option value="default">----</option>
+      <option *ngFor="let paint of paintList" [value]="paint.id_paint">
+        {{ paint.name }}
+      </option>
+  </select>
+  
+  <button (click)="addPaintToInventory()">Ajouter</button>
