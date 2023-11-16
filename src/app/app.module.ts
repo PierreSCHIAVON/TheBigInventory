@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -28,6 +30,7 @@ import { UnitTypeComponent } from './Components/admin/unit-type/unit-type.compon
 import { SoldierComponent } from './Components/admin/soldier/soldier.component';
 import { EquipementComponent } from './Components/admin/equipement/equipement.component';
 import { AppartenirComponent } from './Components/appartenir/appartenir.component';
+import { PaintComponent } from './Components/paint/paint.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { AppartenirComponent } from './Components/appartenir/appartenir.componen
     UnitTypeComponent,
     SoldierComponent,
     EquipementComponent,
-    AppartenirComponent
+    AppartenirComponent,
+    PaintComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { AppartenirComponent } from './Components/appartenir/appartenir.componen
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

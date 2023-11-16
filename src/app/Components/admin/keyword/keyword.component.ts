@@ -13,6 +13,7 @@ export class KeywordComponent {
   keywordList: Keyword[] = [];
   keyword: Keyword = { id_keyword: 0, name: '' }; 
   keywordName: string = '';
+selectedKeyword: any;
 
   constructor(private http: HttpClient, private keywordService: KeywordService) {}
 

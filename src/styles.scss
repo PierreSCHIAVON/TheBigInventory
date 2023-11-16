@@ -2,3 +2,60 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Style for the list of armies */
+h2 {
+    color: #4285f4;
+  }
+  
+  .example-full-width {
+    width: 50%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  
+  td {
+    padding: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Style for the message when no armies are available */
+  p {
+    color: #757575;
+  }
+  
+  /* Style for the form to add a new army */
+  .example-form {
+    margin-top: 20px;
+  }
+  
+  /* Style for the submit button */
+  input[type="submit"] {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
